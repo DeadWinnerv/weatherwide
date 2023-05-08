@@ -6,8 +6,8 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class GetLocationService {
-  public api_key: string = '442106a38a5b4708aaedffafd45b9ead'
-  public url: string = `https://ipgeolocation.abstractapi.com/v1/?api_key=${this.api_key}`
+  private api_key: string = '442106a38a5b4708aaedffafd45b9ead'
+  private url: string = `https://ipgeolocation.abstractapi.com/v1/?api_key=${this.api_key}`
 
   constructor(private http: HttpClient) { }
 
