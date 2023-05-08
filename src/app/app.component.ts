@@ -20,10 +20,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this.userCity = res.city
       getWeather.getWeather(res.latitude ?? '', res.longitude ?? '')?.subscribe((res: any) => {
         this.currentWeather = {
-          currentTemperature: res.current_weather.temperature,
-          currentWindSpeed: res.current_weather.windspeed,
-          currentWindDirrection: res.current_weather.winddirection,
-          currentWeatherCode: res.current_weather.weathercode
+          temperature: res.current_weather.temperature,
+          windSpeed: res.current_weather.windspeed,
+          windDirrection: res.current_weather.winddirection,
+          weatherCode: res.current_weather.weathercode
         }
         console.log(this.currentWeather);
         this.hourlyWeather = res.hourly

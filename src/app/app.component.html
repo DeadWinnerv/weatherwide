@@ -16,10 +16,10 @@
           </svg>
         </div>
         <div class="weather-current-details">
-          <p class="weather-details-temp">{{ '12' }}</p>
+          <p class="weather-details-temp">{{ currentWeather.temperature }}</p>
           <p class="weather-details-wind">
-            <span class="weather-details-windspeed">3 м/c</span>
-            <span class="weather-details-winddir">Ю/З</span>
+            <span class="weather-details-windspeed"> {{ currentWeather.windSpeed }} м/c </span>
+            <span class="weather-details-winddir"> {{ currentWeather.windDirrection }} </span>
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 export interface ICurrentWeather {
-	currentTemperature?: number,
-  currentWindSpeed?: number;
-  currentWindDirrection?: number;
-  currentWeatherCode?: number;
+	temperature?: number,
+  windSpeed?: number;
+  windDirrection?: number;
+  weatherCode?: number;
 }
