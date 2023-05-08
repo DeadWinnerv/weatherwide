@@ -19,7 +19,7 @@
           <p class="weather-details-temp">{{ currentWeather.temperature }}</p>
           <p class="weather-details-wind">
             <span class="weather-details-windspeed"> {{ currentWeather.windSpeed }} м/c </span>
-            <span class="weather-details-winddir"> {{ currentWeather.windDirrection }} </span>
+            <span class="weather-details-winddir"> {{ currentWeather.windDirrection | windDirrection }} </span>
           </p>
         </div>
       </div>
