@@ -1,26 +1,43 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ICurrentWeather } from 'src/interfaces/ICurrentWeather';
+import { IHourlyWeather } from 'src/interfaces/IHourlyWeather';
 import { GetLocationService } from 'src/services/getLocation.service';
 import { GetWeatherService } from 'src/services/getWeather.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
-  userPosition: any;
-  userWeather: any
+export class AppComponent implements OnInit, OnDestroy {
+  currentWeather:ICurrentWeather = {}
+  userCity: string
+  hourlyWeather: IHourlyWeather = {}
+  date: Date = new Date
 
   constructor(getLocation: GetLocationService, getWeather: GetWeatherService) {
     getLocation.getPosition().subscribe((res: any) => {
-      this.userPosition = res
-      getWeather.getWeather(this.userPosition.latitude ?? '', this.userPosition.longitude ?? '')?.subscribe((res: any) => {
-        this.userWeather = res
+      this.userCity = res.city
+      getWeather.getWeather(res.latitude ?? '', res.longitude ?? '')?.subscribe((res: any) => {
+        this.currentWeather = {
+          currentTemperature: res.current_weather.temperature,
+          currentWindSpeed: res.current_weather.windspeed,
+          currentWindDirrection: res.current_weather.winddirection,
+          currentWeatherCode: res.current_weather.weathercode
+        }
+        console.log(this.currentWeather);
+        this.hourlyWeather = res.hourly
+        console.log(this.hourlyWeather);
+        
       })
     })
     }
+  ngOnInit(): void {
+    setInterval(() => {
+      this.date = new Date
+    }, 1000)
+  }
   ngOnDestroy(): void {
-    this.userPosition.unsubscribe()
+    
   }
 }
