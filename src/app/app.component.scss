@@ -90,6 +90,7 @@ span {
 			width: 100%;
 			grid-template-columns: repeat(5, 1fr);
 			gap: 1rem;
+			margin: 0.5rem;
 			&-time {
 				color: #000;
 			}
@@ -106,7 +107,7 @@ span {
 				}
 			}
 			&-temp {
-				font-size: 28px;
+				font-size: 22px;
 				color: #000;
 			}
 		}

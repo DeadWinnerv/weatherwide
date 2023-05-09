@@ -5,12 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { WindDirrectionPipe } from 'src/pipes/windDirrection.pipe';
 import { SvgPathDirective } from 'src/directives/svgPath.directive';
+import { PreloaderComponent } from 'src/ui/preloader/preloader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WindDirrectionPipe,
-    SvgPathDirective
+    SvgPathDirective,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,

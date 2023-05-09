@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="weather-app">
+  <div class="weather-app" *ngIf="!isLoading">
     <div class="header">
       <div class="header-title">
         <p class="title">weatherwide</p>
@@ -34,4 +34,5 @@
       </div>
     </div>
   </div>
+  <app-preloader *ngIf="isLoading"></app-preloader>
 </div>

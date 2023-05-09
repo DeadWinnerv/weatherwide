@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   userCity: string;
   hourlyWeather: IHourlyWeather[] = [];
   date: Date = new Date();
+  isLoading: boolean = true;
 
   constructor(getLocation: GetLocationService, getWeather: GetWeatherService) {
     getLocation.getPosition().subscribe((res: any) => {
@@ -27,16 +28,15 @@ export class AppComponent implements OnInit, OnDestroy {
             windDirrection: res.current_weather.winddirection,
             weatherCode: res.current_weather.weathercode,
           };
-          console.log(this.currentWeather);
           res.hourly.time.forEach((item: string, index: number) => {
             this.hourlyWeather.push({
               time: item,
               temperature: res.hourly.temperature_2m[index],
-              weatherCode: res.hourly.weathercode[index]
+              weatherCode: res.hourly.weathercode[index],
             });
           });
           this.hourlyWeather = this.filterHourly(this.hourlyWeather);
-          console.log('hourly ', this.hourlyWeather);
+          this.isLoading = false;
         });
     });
   }
@@ -48,11 +48,9 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
 
   filterHourly(hourlyArr: IHourlyWeather[]): IHourlyWeather[] {
-    
-    hourlyArr = hourlyArr.filter(
-      (item) => {
-        return new Date(item.time!).getTime() > this.date.getTime()
-      });
-    return hourlyArr.slice(0,5);
+    hourlyArr = hourlyArr.filter((item) => {
+      return new Date(item.time!).getTime() > this.date.getTime();
+    });
+    return hourlyArr.slice(0, 5);
   }
 }
