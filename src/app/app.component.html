@@ -2,8 +2,11 @@
   <div class="weather-app">
     <div class="header">
       <div class="header-title">
-        <p class="time">{{ date | date : "hh:mm" }}</p>
         <p class="title">weatherwide</p>
+        <p class="time">{{ date | date : "hh:mm" }}</p>
+        <p class="user-city">
+          {{ userCity }}
+        </p>
       </div>
       <div class="weather-current">
         <div class="weather-svg">
