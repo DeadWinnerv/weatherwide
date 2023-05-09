@@ -3,6 +3,7 @@ import { ICurrentWeather } from 'src/interfaces/ICurrentWeather';
 import { IHourlyWeather } from 'src/interfaces/IHourlyWeather';
 import { GetLocationService } from 'src/services/getLocation.service';
 import { GetWeatherService } from 'src/services/getWeather.service';
+import { svg } from 'src/constants/SVGPATH'
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   userCity: string
   hourlyWeather: IHourlyWeather = {}
   date: Date = new Date
+  path: string = svg[2].path
 
   constructor(getLocation: GetLocationService, getWeather: GetWeatherService) {
     getLocation.getPosition().subscribe((res: any) => {
