@@ -62,10 +62,6 @@ span {
 				align-items: flex-end;
 				justify-content: space-between;
 				gap: 1rem;
-				.weather-svg {
-					height: 90px;
-					width: 90px;
-				}
 				.weather-current-details {
 					display: flex;
 					flex-direction: column;
@@ -76,6 +72,15 @@ span {
 					.weather-details-wind {
 						display: flex;
 						gap: 0.3rem;
+					}
+				}
+				.weather-svg {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					.material-symbols-outlined {
+						font-size: 92px;
 					}
 				}
 			}
@@ -94,9 +99,14 @@ span {
 				align-items: center;
 				justify-content: center;
 				gap: 0.2rem;
+				.weather-svg {
+					.material-symbols-outlined {
+						font-size: 46px;
+					}
+				}
 			}
 			&-temp {
-				font-size: 42px;
+				font-size: 28px;
 				color: #000;
 			}
 		}

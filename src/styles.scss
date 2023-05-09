@@ -8,6 +8,17 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+
+ .material-symbols-outlined {
+  width: fit-content;
+  height: fit-content;
+   font-variation-settings:
+   'FILL' 0,
+   'wght' 400,
+   'GRAD' 0,
+   'opsz' 48
+ }
+
  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
  *{

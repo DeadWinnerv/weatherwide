@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WindDirrectionPipe } from 'src/pipes/windDirrection.pipe';
+import { SvgPathDirective } from 'src/directives/svgPath.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WindDirrectionPipe
+    WindDirrectionPipe,
+    SvgPathDirective
   ],
   imports: [
     BrowserModule,
