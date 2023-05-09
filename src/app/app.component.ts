@@ -32,6 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
             this.hourlyWeather.push({
               time: item,
               temperature: res.hourly.temperature_2m[index],
+              weatherCode: res.hourly.weathercode[index]
             });
           });
           this.hourlyWeather = this.filterHourly(this.hourlyWeather);

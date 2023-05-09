@@ -12,7 +12,7 @@ export class GetWeatherService {
   }
 
   public getWeather(lat: string, long: string) {
-    this.url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true&windspeed_unit=ms&hourly=temperature_2m`;
+    this.url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true&windspeed_unit=ms&hourly=temperature_2m&hourly=weathercode`;
     return this.http.get(this.url).pipe(
       map((res: any) => {
         console.log(res);

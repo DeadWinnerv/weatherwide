@@ -23,14 +23,14 @@
       </div>
     </div>
     <div class="weather-hourly">
-      <div class="weather-hourly-item">
-        <span class="weather-hourly-time"> 12:00 </span>
+      <div class="weather-hourly-item" *ngFor="let item of hourlyWeather">
+        <span class="weather-hourly-time"> {{ item.time | date:'hh:mm' }} </span>
         <div class="weather-svg">
-          <span class="material-symbols-outlined">
-            thunderstorm
+          <span class="material-symbols-outlined" [appSvgPath]="item.weatherCode!">
+            
             </span>
         </div>
-        <span class="weather-hourly-temp"> 12°C</span>
+        <span class="weather-hourly-temp"> {{ item.temperature }}°C</span>
       </div>
     </div>
   </div>
