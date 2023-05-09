@@ -14,7 +14,6 @@ export class GetLocationService {
   public getPosition(): Observable<any> {
     return this.http.get(this.url).pipe(
       map((res: any) => {
-        console.log(res);
         return res;
       })
     );
